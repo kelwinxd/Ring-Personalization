@@ -1,3 +1,21 @@
+/* Estilos gerais para o desktop */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    overflow: hidden; /* Adiciona para evitar rolagem no desktop */
+}
+
+.container {
+    display: flex;
+    max-width: 1100px;
+    height: 70vh;
+    margin: 5rem auto;
+    gap: 7rem;
+    font-size: 1.2rem;
+}
+
 .model3d {
     width: 500px;
     max-width: 500px;
@@ -5,16 +23,6 @@
     justify-content: center;
     align-items: center;
     border: 1px solid rgb(63, 63, 63);
-    
-}
-
-body {
-    max-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.model3d {
     position: relative;
 }
 
@@ -23,21 +31,6 @@ body {
     height: 700px;
     transition: all 1s ease;
     background-color: transparent;
-    
-    
-}
-
-.container {
-    display: flex;
-    max-width: 1100px;
-   height: 70vh;
-    margin: 5rem auto;
-    gap: 7rem;
-    font-size: 1.2rem;
-  }
-
-body {
-    background-color: #212121;
 }
 
 .select {
@@ -58,14 +51,12 @@ body {
 .btns button {
     width: 100px;
     height: 50px;
-
     background-color: gray;
     border: none;
     border-radius: 14px;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    
 }
 
 .btns button.active {
@@ -88,26 +79,22 @@ body {
     display: flex;
     justify-content: center;
     gap: 2rem;
-
 }
 
 #share {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      color: gray;
-     
-      padding: 0.1rem;
-     
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 10000;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: gray;
+    padding: 0.1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10000;
 }
 
 .share-options {
-  
-   display: none;
-   transition: .5s;
+    display: none;
+    transition: .5s;
 }
 
 .share-options.active {
@@ -117,10 +104,8 @@ body {
 
 @keyframes showup {
     from {
-       
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -136,18 +121,17 @@ body {
     bottom: -55px;
     cursor: pointer;
 }
+
 .social-media:nth-child(1) {
     position: absolute;
-  
     right: -30px;
     background-color: #25D366;
 }
 
 .social-media:nth-child(2) {
     position: absolute;
-   
     right: 30px;
-    background-color: #1877F2 ;
+    background-color: #1877F2;
 }
 
 .reset {
@@ -191,7 +175,6 @@ body {
 
 .action button {
     border: none;
-    
     padding: 0.5rem 1rem;
     border-radius: 14px;
     color: #fff;
@@ -224,7 +207,6 @@ input[type="range"]::-webkit-slider-thumb {
     width: 30px;
     background-color:rgb(65, 65, 65);
     border-radius: 50%;
-   
     cursor: pointer;
 }
 
@@ -241,39 +223,37 @@ input[type="range"]::-webkit-slider-thumb {
     bottom: 20px;
     left: 50%;
     transform: translate(-50%);
-    
 }
 
-@media screen and (max-width:960px){
+/* Estilos para o responsivo no mobile */
+@media screen and (max-width: 960px) {
     .container {
         gap: 2rem;
-        
     }
 }
 
 @media screen and (max-width: 700px) {
-
-    body {
-        overflow-x: hidden;
+    body, html {
+        overflow-x: hidden; /* Evita rolagem horizontal no mobile */
         overflow-y: hidden;
         max-height: 100vh;
+        
     }
+
     .container {
         flex-direction: column;
         justify-content: center;
         gap: 3rem;
-        max-height: 100vh;
-       
+        height: 80vh;
+        width: 100%;
     }
      
     .select {
-        width: 350px;
-        height: 600px;
-        
+        width: 80%;
+        height: 400px;
         align-self: center;
     }
-   
-    
+
     .btns {
         flex-direction: row;
         gap: 10px;
@@ -282,7 +262,7 @@ input[type="range"]::-webkit-slider-thumb {
     .btns button {
         font-size: 14px;
         padding: 10px 15px;
-        width: 100%;
+        width: auto;
     }
 
     .models,
@@ -295,28 +275,22 @@ input[type="range"]::-webkit-slider-thumb {
     .models img,
     .pedra-options img {
         width: 60px;
-        
     }
 
-     .action button {
+    .action button {
         font-size: 20px;
-       
-     }
+    }
 
     .model3d model-viewer {
-        width: 500px;
+        width: 100%;
         height: 300px;
         transition: all 1s ease;
         background-color: transparent;
-        
     }
 
     .model3d {
-        height: 2000px;
-        width: 400px;
+        height: auto;
+        width: 90%;
         align-self: center;
     }
-
-    
-    
 }
