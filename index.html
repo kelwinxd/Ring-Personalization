@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+    
+    <div class="model3d">
+        <model-viewer id="mod" class="model" alt="" src="./imgs/ringreta.glb" auto-rotate shadow-intensity="2"
+        camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
+        <div id="share" class="share"> <i class="fas fa-share-alt"></i>
+        <div class="share-options">
+            <button class="social-media whats"><i class="fab fa-whatsapp"></i></button>
+            <button class="social-media"><i class="fab fa-facebook-f"></i> </button>
+
+        </div>
+        </div>
+       
+        <button class="reset">Reset</button>
+    </div>
+    <div class="select">
+   
+        <div class="btns">
+            <button class="active" data-name="modelo">Modelo</button>
+            <button data-name="pedra">Pedra</button>
+            <button data-name="tamanho">Tamanho</button>
+        </div>
+
+        <!-- Botões de seleção de modelos -->
+        <div class="models card" data-name="modelo">
+            <button class="model-btn active" data-model="ringreta">
+                <img src="./imgs/retamodel.png">
+                <p>Reta</p>
+            </button>
+            <button class="model-btn" data-model="ringchanf">
+                <img src="./imgs/retamodel.png">
+                <p>Chanfrada</p>
+            </button>
+            <!-- Novo modelo adicionado -->
+            <button class="model-btn" data-model="tradring">
+                <img src="./imgs/retamodel.png">
+                <p>Tradicional</p>
+            </button>
+        </div>
+
+        <!-- Botões de seleção de pedra -->
+        <div class="pedra-options card hide" data-name="pedra">
+            <button class="pedra-btn" data-pedra="sim"><img src="./imgs/diamante.png" alt="">
+            <p>Com pedra</p>
+            </button>
+            <button class="pedra-btn active" data-pedra="nao" ><img src="./imgs/desativado.png" alt="">
+            <p>Sem Pedra</p>
+            </button>
+        </div>
+
+        <div class="card hide tamanho" data-name="tamanho" >
+            <img src="./imgs/reguacerta.png" alt="">
+            <input type="range" name="" id="size" min="0" max="1" value="1">
+        </div>
+<div class="action">
+    <a href="#"><button>Contate-nos</button></a>
+    <a href="google.com" class="toend"><button id="send">Fabricar</button></a>
+</div>
+        
+    </div>
+ 
+</div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
