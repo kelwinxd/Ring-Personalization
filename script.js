@@ -131,8 +131,7 @@ document.querySelector('.whats').addEventListener('click', () => {
     const selectedTamanho = document.getElementById('size').value;
 
     // Construindo a URL de compartilhamento com os parâmetros
-    const shareURL = `https://kelwinxd.github.io/Ring-Personalization/pages/showcase.html
-?model=${selectedModel}&pedra=${selectedPedra}&tamanho=${selectedTamanho}`;
+    const shareURL = `https://kelwinxd.github.io/Ring-Personalization/pages/showcase.html?model=${selectedModel}&pedra=${selectedPedra}&tamanho=${selectedTamanho}`;
     const message = `Veja a personalização da minha aliança: ${shareURL}`;
 
     // Detectar dispositivo
