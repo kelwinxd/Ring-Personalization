@@ -3,16 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalização da Aliança</title>
+    <link rel="stylesheet" href="../style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <title>Showcase</title>
+    <style>
+        /* Estilo minimalista para a vitrine da aliança */
+        body {
+            background-color: #212121;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .model3d {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background-color: transparent;
+            
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Detalhes da Personalização</h1>
+<div class="model3d">
+    <model-viewer id="mod" alt="Aliança personalizada" src="" auto-rotate shadow-intensity="2"
+    camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
+</div>
 
-    <p id="selected-model">Modelo: </p>
-    <p id="selected-pedra">Pedra: </p>
-    <p id="selected-tamanho">Tamanho: </p>
+<script>
+    // Função para pegar os parâmetros da URL
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            model: params.get('model'),
+            pedra: params.get('pedra')
+        };
+    }
 
-    <script src="./script.js"></script>
+    // Definindo o modelo 3D baseado nos parâmetros
+    window.addEventListener('DOMContentLoaded', () => {
+        const { model, pedra } = getUrlParams();
+
+        const modelViewer = document.getElementById('mod');
+        
+        // Defina o caminho do modelo com base no parâmetro 'model'
+        let modelSrc = '';
+        
+        if (model === 'ringreta') {
+            modelSrc = '../imgs/ringreta.glb'; // Exemplo de caminho para ringreta
+        } else if (model === 'ringchanf') {
+            modelSrc = '../imgs/ringchanf.glb'; // Exemplo de caminho para ringchanf
+        } else if (model === 'tradring') {
+            modelSrc = '../imgs/tradring.glb'; // Exemplo de caminho para tradring
+        }
+        
+        // Definindo a fonte do modelo no model-viewer
+        modelViewer.setAttribute('src', modelSrc);
+
+        // Exemplo de aplicação de efeitos baseados no parâmetro 'pedra'
+        if (pedra === 'sim') {
+            // Alterar a rotação ou qualquer outro atributo, se necessário
+            modelViewer.setAttribute('shadow-intensity', '3');
+        } else {
+            modelViewer.setAttribute('shadow-intensity', '1');
+        }
+    });
+</script>
+
 </body>
 </html>
