@@ -120,9 +120,23 @@ shareBtn.addEventListener('click', (e) => {
     shareOptions.classList.toggle('active');
 });
 
-btnWhats.addEventListener('click', () => {
+document.querySelector('.whats').addEventListener('click', () => {
+    // Captura do modelo selecionado
+    const selectedModel = document.querySelector('.model-btn.active').getAttribute('data-model');
+    
+    // Captura da pedra selecionada
+    const selectedPedra = document.querySelector('.pedra-btn.active').getAttribute('data-pedra');
+    
+    // Captura do tamanho selecionado
+    const selectedTamanho = document.getElementById('size').value;
+
+    // Construindo a URL de compartilhamento com os parâmetros
+    const shareURL = `https://kelwinxd.github.io/Ring-Personalization/pages/showcase.html
+?model=${selectedModel}&pedra=${selectedPedra}&tamanho=${selectedTamanho}`;
+    const message = `Veja a personalização da minha aliança: ${shareURL}`;
+
+    // Detectar dispositivo
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const message = `Veja a personalização da minha aliança: agora`;
 
     let whatsappURL;
     if (isMobile) {
@@ -132,9 +146,10 @@ btnWhats.addEventListener('click', () => {
         // Para computadores, redirecionamos para o WhatsApp Web
         whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     }
-    
+
+    // Abrir o link correspondente
     window.open(whatsappURL, '_blank');
-})
+});
 
 document.addEventListener('click', (e) => {
     // Verifica se o clique foi fora do botão e do menu de opções
