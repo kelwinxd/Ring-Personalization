@@ -293,4 +293,16 @@ input[type="range"]::-webkit-slider-thumb {
         width: 90%;
         align-self: center;
     }
+
+    .social-media:nth-child(1) {
+        position: absolute;
+        right: 30px;
+        background-color: #25D366;
+    }
+    
+    .social-media:nth-child(2) {
+        position: absolute;
+        right: 60px;
+        background-color: #1877F2;
+    }
 }
