@@ -57,37 +57,35 @@
         const params = new URLSearchParams(window.location.search);
         return {
             model: params.get('model'),
-            pedra: params.get('pedra')
+            pedra: params.get('pedra'),
+            tamanho: params.get('tamanho')
         };
     }
 
     // Definindo o modelo 3D baseado nos parâmetros
     window.addEventListener('DOMContentLoaded', () => {
-        const { model, pedra } = getUrlParams();
+        const { model, pedra, tamanho } = getUrlParams();
 
         const modelViewer = document.getElementById('mod');
-        
-        // Defina o caminho do modelo com base no parâmetro 'model'
-        let modelSrc = '';
-        
-        if (model === 'ringreta') {
-            modelSrc = '../imgs/ringreta.glb'; // Exemplo de caminho para ringreta
-        } else if (model === 'ringchanf') {
-            modelSrc = '../imgs/ringchanf.glb'; // Exemplo de caminho para ringchanf
-        } else if (model === 'tradring') {
-            modelSrc = '../imgs/tradring.glb'; // Exemplo de caminho para tradring
-        }
-        
-        // Definindo a fonte do modelo no model-viewer
-        modelViewer.setAttribute('src', modelSrc);
+        let modelPath = `../imgs/${model}`;
 
-        // Exemplo de aplicação de efeitos baseados no parâmetro 'pedra'
-        if (pedra === 'sim') {
-            // Alterar a rotação ou qualquer outro atributo, se necessário
-            modelViewer.setAttribute('shadow-intensity', '3');
-        } else {
-            modelViewer.setAttribute('shadow-intensity', '1');
+        // Adiciona "fina" se o tamanho for 0 (fina)
+        if (tamanho === '0') {
+            modelPath += 'fina';
         }
+
+        // Adiciona "compedra" se a opção de pedra estiver ativa
+        if (pedra === 'sim') {
+            modelPath += 'compedra.glb';
+        } else {
+            modelPath += '.glb';
+        }
+
+        // Define o caminho do modelo no model-viewer
+        modelViewer.setAttribute('src', modelPath);
+
+        // Ajusta o efeito de sombra com base na presença de pedra
+        modelViewer.setAttribute('shadow-intensity', pedra === 'sim' ? '3' : '1');
     });
 </script>
 
