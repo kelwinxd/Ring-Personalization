@@ -27,19 +27,29 @@
 
         model-viewer {
             width: 100%;
-            height: 500px;
+            height: 600px;
             background-color: transparent;
             
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-<h2>Olha a aliança que fiz: </h2>
-<div class="model3d">
-    <model-viewer id="mod" alt="Aliança personalizada" src="" auto-rotate shadow-intensity="2"
-    camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
-</div>
-<button><a href="https://kelwinxd.github.io/Ring-Personalization"></a>Faço melhor</button>
+    <div class="container">
+        <h2>Olha a aliança que fiz: </h2>
+        <div class="model3d">
+            <model-viewer id="mod" alt="Aliança personalizada" src="" auto-rotate shadow-intensity="2"
+            camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
+        </div>
+        <button><a href="https://kelwinxd.github.io/Ring-Personalization">Faço melhor</a></button>
+    </div>
+
 
 <script>
     // Função para pegar os parâmetros da URL
