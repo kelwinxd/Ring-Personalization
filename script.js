@@ -156,3 +156,24 @@ document.addEventListener('click', (e) => {
         shareOptions.classList.remove('active');
     }
 });
+
+document.querySelector('.facebook').addEventListener('click', () => {
+    // Captura do modelo selecionado
+    const selectedModel = document.querySelector('.model-btn.active').getAttribute('data-model');
+    
+    // Captura da pedra selecionada
+    const selectedPedra = document.querySelector('.pedra-btn.active').getAttribute('data-pedra');
+    
+    // Captura do tamanho selecionado
+    const selectedTamanho = document.getElementById('size').value;
+
+    // Construindo a URL de compartilhamento com os parâmetros
+    const shareURL = `https://kelwinxd.github.io/Ring-Personalization/pages/showcase.html?model=${selectedModel}&pedra=${selectedPedra}&tamanho=${selectedTamanho}`;
+
+    // URL de compartilhamento do Facebook
+    const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareURL)}`;
+
+    // Abrir o link correspondente em uma nova aba
+    window.open(facebookURL, '_blank');
+});
+
