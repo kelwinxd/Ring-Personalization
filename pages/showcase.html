@@ -23,7 +23,7 @@
         }
 
         .model3d {
-            width: 100%;
+            width: 90%;
             max-width: 500px;
             display: flex;
             justify-content: center;
@@ -31,7 +31,7 @@
         }
 
         model-viewer {
-            width: 100%;
+            width: 90%;
             height: 600px;
             background-color: transparent;
             
@@ -41,18 +41,69 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            
         }
+
+        h2 {
+            color: #fff;
+        }
+
+        .perso {
+            padding: 0.5rem 1rem;
+            border-radius: 14px;
+            border: none;
+           background-color: gray;
+           position: absolute;
+           bottom: -90px;
+        }
+
+        .perso a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            
+        }
+         
+        @media screen and (min-width:700px) {
+            model-viewer {
+            width: 90%;
+            height: 500px;
+            background-color: transparent;
+            
+        }
+
+        .model3d {
+            height: 600px;
+        }
+        h2 {
+            position: absolute;
+            top: 50px;
+        }
+
+        .perso {
+            bottom: -90px;
+            position: absolute;
+         
+
+        }
+
+        
+
+        }
+        
     </style>
 </head>
 <body>
+
+   
     <div class="container">
         <h2>Olha a aliança que fiz: </h2>
         <div class="model3d">
             <model-viewer id="mod" alt="Aliança personalizada" src="" auto-rotate shadow-intensity="2"
             camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
+            <button class="perso"><a href="https://kelwinxd.github.io/Ring-Personalization">Personalize o seu</a></button>
         </div>
-        <button><a href="https://kelwinxd.github.io/Ring-Personalization">Faço melhor</a></button>
+      
     </div>
 
 

@@ -177,3 +177,12 @@ document.querySelector('.facebook').addEventListener('click', () => {
     window.open(facebookURL, '_blank');
 });
 
+const menu = document.querySelector('.menu')
+const closeBtn = document.querySelector('.close')
+menu.addEventListener('click', () => {
+    document.querySelector('.submenu').classList.add('showup')
+})
+closeBtn.addEventListener('click',() => {
+    document.querySelector('.submenu').classList.remove('showup')
+
+})
