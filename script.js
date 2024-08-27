@@ -150,10 +150,17 @@ document.querySelector('.whats').addEventListener('click', () => {
     window.open(whatsappURL, '_blank');
 });
 
+const subMenu = document.querySelector('.submenu')
+
 document.addEventListener('click', (e) => {
     // Verifica se o clique foi fora do botão e do menu de opções
     if (!shareBtn.contains(e.target) && !shareOptions.contains(e.target)) {
         shareOptions.classList.remove('active');
+    }
+
+    if(!menu.contains(e.target)){
+        subMenu.classList.remove('showup')
+        overlay.classList.remove('showup')
     }
 });
 
@@ -179,10 +186,23 @@ document.querySelector('.facebook').addEventListener('click', () => {
 
 const menu = document.querySelector('.menu')
 const closeBtn = document.querySelector('.close')
-menu.addEventListener('click', () => {
-    document.querySelector('.submenu').classList.add('showup')
-})
-closeBtn.addEventListener('click',() => {
-    document.querySelector('.submenu').classList.remove('showup')
+const overlay = document.querySelector('.shadow')
 
-})
+// Abre o submenu quando clica no ícone de hambúrguer
+menu.addEventListener('click', (e) => {
+    subMenu.classList.add('showup');
+    overlay.classList.add('showup')
+
+});
+
+// Fecha o submenu quando clica no "X"
+closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Previne que o evento se propague para o menu
+    subMenu.classList.remove('showup');
+    overlay.classList.remove('showup')
+});
+
+// Previne que o clique dentro do submenu dispare o evento de clique no menu
+subMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+});

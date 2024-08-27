@@ -95,6 +95,7 @@ body {
 .share-options {
     display: none;
     transition: .5s;
+  
 }
 
 .share-options.active {
@@ -110,6 +111,7 @@ body {
         opacity: 1;
     }
 }
+
 
 .social-media {
     width: 40px;
@@ -283,13 +285,26 @@ input[type="range"]::-webkit-slider-thumb {
      
     .close {
           position: absolute;
-          left: 215px;
+          left: 220px;
+          top: 20px;
           font-weight: bold;
           color: red;
+          z-index: 30000;
     }
     .submenu.showup {
         display: block;
         z-index: 1000;
+        animation: appear .5s forwards ease;
+    }
+
+    @keyframes appear {
+        from {
+            transform: translateX(-100px);
+        }
+
+        to {
+            transform: translateX(0);
+        }
     }
 
     .submenu ul{
@@ -297,13 +312,28 @@ input[type="range"]::-webkit-slider-thumb {
         display: flex;
         flex-direction: column;
        
-      
+         
         margin: 0;
-        margin-top: 4rem;
+        margin-top: 5rem;
         padding-left: 1rem;
         padding-right: 2rem;
         
-        gap: 1rem;
+        gap: 2rem;
+    }
+
+    .shadow {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+        z-index: 999; /* O overlay fica abaixo do submenu */
+    }
+
+    .shadow.showup {
+        display: block;
     }
 
     .submenu ul li  {
@@ -321,14 +351,15 @@ input[type="range"]::-webkit-slider-thumb {
     .container {
         flex-direction: column;
         justify-content: center;
-        gap: 3rem;
+        gap: 2.5rem;
         height: 80vh;
         width: 100%;
+        
     }
      
     .select {
         width: 80%;
-        height: 400px;
+        height: 350px;
         align-self: center;
     }
 
@@ -356,7 +387,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
 
     .action button {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .model3d model-viewer {
