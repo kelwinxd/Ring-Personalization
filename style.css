@@ -1,4 +1,10 @@
 /* Estilos gerais para o desktop */
+* {
+    margin: 0;
+    padding: 0;
+ 
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,6 +20,46 @@ body {
     margin: 5rem auto;
     gap: 7rem;
     font-size: 1.2rem;
+}
+
+
+.menudeskshow a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menudeskshow {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-right: 7rem;
+    
+}
+
+.menudesktop {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
+}
+
+
+
+.logo {
+width: 100px;
+}
+
+.logomobile img {
+    display: none;
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10px;
 }
 
 .model3d {
@@ -258,6 +304,10 @@ input[type="range"]::-webkit-slider-thumb {
         
     }
 
+    .menudesktop {
+        display: none;
+    }
+
     .menu {
         font-size: 35px; /* Tamanho do ícone */
         cursor: pointer;
@@ -282,6 +332,10 @@ input[type="range"]::-webkit-slider-thumb {
         
       
     
+    }
+
+    .logomobile img {
+        display: block;
     }
      
     .close {
