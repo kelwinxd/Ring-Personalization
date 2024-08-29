@@ -18,6 +18,7 @@ body {
     max-width: 1100px;
     height: 70vh;
     margin: 5rem auto;
+    
     gap: 7rem;
     font-size: 1.2rem;
 }
@@ -66,9 +67,10 @@ width: 100px;
     width: 500px;
     max-width: 500px;
     display: flex;
+    margin-left: 2rem;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(63, 63, 63);
+    border: 1px solid rgba(217, 181, 101, 0.3);
     position: relative;
 }
 
@@ -81,7 +83,7 @@ width: 100px;
 
 .select {
     padding: 1rem;
-    background-color: gray;
+    background-color: #F6F6F6;
     border-radius: 14px;
     display: flex;
     flex-direction: column;
@@ -94,31 +96,50 @@ width: 100px;
     gap: 7px;
 }
 
+.model-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 10px;
+    font-weight: bold;
+    color: #fff;
+ }
+
 .btns button {
     width: 100px;
     height: 50px;
-    background-color: gray;
-    border: none;
+    
+    border: 1px solid #D9B565;
     border-radius: 14px;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    color: #D9B565;
 }
 
 .btns button.active {
-    background-color: #212121;
+    background-color: #D9B565;
+    color: #fff;
 }
 
 .models button {
-    background-color: gray;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #d4d4d4;
     border: none;
+    border-radius: 14px ;
     cursor: pointer;
+    width: 75px;
 }
 
 .models button.active {
-    background-color: #212121;
+    background-color: #D9B565;
     border-radius: 14px;
     padding: 0.5rem;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform .3s ease;
 }
 
 .models {
@@ -186,12 +207,13 @@ width: 100px;
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background-color: gray;
+    background-color: rgba(217, 181, 101, 1);
     border: none;
     cursor: pointer;
     border-radius: 14px;
     padding: 0.5rem;
     color: #fff;
+    font-weight: bold;
 }
 
 .pedra-btn {
@@ -205,6 +227,8 @@ width: 100px;
     border-radius: 14px;
     padding: 0.5rem;
 }
+
+
 
 .card.hide {
     display: none;
@@ -230,6 +254,10 @@ width: 100px;
     font-size: 1rem;
 }
 
+.model-btn {
+    padding: 5px 7px;
+}
+
 .menu {
     display: none;
 }
@@ -247,13 +275,14 @@ width: 100px;
 }
 
 .action button:first-child {
-    background-color: gray;
-    border: 1px solid #fff;
+    color:#D9B565;
+    border: 1px solid #D9B565;
 }
 
 #send {
-    background-color: #212121;
+    background-color: #D9B565;
     border: none;
+    color: #fff;
     padding: 0.5rem 2rem;
 }
 
@@ -293,6 +322,11 @@ input[type="range"]::-webkit-slider-thumb {
 @media screen and (max-width: 960px) {
     .container {
         gap: 2rem;
+      
+    }
+
+    .model3d {
+        margin-left: 0;
     }
 }
 
@@ -304,6 +338,9 @@ input[type="range"]::-webkit-slider-thumb {
         
     }
 
+    .model3d {
+        margin-left: 0;
+    }
     .menudesktop {
         display: none;
     }
@@ -333,6 +370,8 @@ input[type="range"]::-webkit-slider-thumb {
       
     
     }
+
+  
 
     .logomobile img {
         display: block;
@@ -401,7 +440,7 @@ input[type="range"]::-webkit-slider-thumb {
         color: #fff;
     }
 
-    
+   
 
     .container {
         flex-direction: column;
@@ -420,10 +459,13 @@ input[type="range"]::-webkit-slider-thumb {
     }
 
     
-
+     
     .select .model-btn img {
-        width: 50px;
+        width: 40px;
+        margin-top: 5px;
     }
+    
+    
 
     .btns {
         flex-direction: row;
@@ -463,6 +505,7 @@ input[type="range"]::-webkit-slider-thumb {
         height: auto;
         width: 90%;
         align-self: center;
+        margin-top: 3rem;
     }
 
     .social-media:nth-child(1) {
