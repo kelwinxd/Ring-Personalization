@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
       <!-- Open Graph meta tags -->
       <meta property="og:title" content="Veja a personalização da minha aliança">
@@ -13,6 +15,8 @@
     <title>Showcase</title>
     <style>
         /* Estilo minimalista para a vitrine da aliança */
+
+        
         body {
             background-color: #212121;
             display: flex;
@@ -21,7 +25,7 @@
             height: 100vh;
             margin: 0;
         }
-
+        
         .model3d {
             width: 90%;
             max-width: 500px;
@@ -29,6 +33,29 @@
             justify-content: center;
             align-items: center;
         }
+
+        .logo {
+            width: 100px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social {
+            font-size: 30px;
+            position: absolute;
+            display: flex;
+            gap: 30px;
+            top: 30px;
+            right: 30px;
+            color: #D9B565;
+
+        }
+
+         .social i {
+            cursor: pointer;
+         }
 
         model-viewer {
             width: 90%;
@@ -45,12 +72,20 @@
         }
 
         .like {
-            font-size: 14px;
-            color: red;
+           font-size: 50px;
+           color: #D9B565;
+           padding: 0.7rem 1.2rem;
+            border-radius: 14px;
+            border: none;
+          cursor: pointer;
+           position: absolute;
+           bottom: -90px;
         }
 
         h2 {
             color: #fff;
+            text-align: center;
+
         }
 
         .perso {
@@ -70,6 +105,7 @@
         }
          
         @media screen and (min-width:700px) {
+
             model-viewer {
             width: 90%;
             height: 500px;
@@ -85,6 +121,11 @@
             top: 50px;
         }
 
+        .like {
+            bottom: -100px;
+            left: 10px;
+        }
+
         .perso {
             bottom: -90px;
             right: 10px;
@@ -94,21 +135,54 @@
 
         }
 
+        .logo {
+            left: 100px;
+            top: 20px;
+        }
+
         
 
+        
+
+        }
+
+        @media screen and (max-width:700px) {
+            .perso {
+                right: 20px;
+            }
+
+            .like {
+                left: 20px;
+                bottom: -100px;
+            }
+
+            .container {
+                justify-content: start;
+                padding-top: 6rem;
+            }
         }
         
     </style>
 </head>
 <body>
 
-   
+   <nav>
+     <img src="../imgs/logo.png" alt="" class="logo">
+     <div class="social">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook"></i>
+
+    
+    </div>
+     
+
+   </nav>
     <div class="container">
-        <h2>Olha a aliança que fiz: </h2>
+        <h2>Olha a aliança que fiz na Santoro: </h2>
         <div class="model3d">
             <model-viewer id="mod" alt="Aliança personalizada" src="" auto-rotate shadow-intensity="2"
             camera-controls touch-action="pan-y" camera-orbit="110deg 90deg 15m"></model-viewer>
-            <i class="far fa-heart"></i>
+            <i class="far fa-heart like"></i>
 
             <button class="perso"><a href="https://kelwinxd.github.io/Ring-Personalization">Personalize o seu</a></button>
         </div>
@@ -152,6 +226,11 @@
         // Ajusta o efeito de sombra com base na presença de pedra
         modelViewer.setAttribute('shadow-intensity', pedra === 'sim' ? '3' : '1');
     });
+
+    const like = document.querySelector('.like')
+    like.addEventListener('click', () => {
+      like.classList.replace('far','fas')
+    })
 </script>
 
 </body>

@@ -5,6 +5,11 @@
  
 }
 
+button, a, .menu i, .submenu ul li {
+    outline: none;
+    
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -35,6 +40,7 @@ body {
     gap: 2rem;
     font-size: 1.2rem;
     margin-right: 7rem;
+    z-index: 20000;
     
 }
 
@@ -105,6 +111,10 @@ width: 100px;
     gap: 10px;
     font-weight: bold;
     color: #fff;
+ }
+
+ .model-btn img {
+    width: 50px;
  }
 
 .btns button {
@@ -218,14 +228,23 @@ width: 100px;
 
 .pedra-btn {
     border: none;
-    background-color: gray;
+    width: 100px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #d4d4d4;
+    padding: 1rem;
+    border-radius: 14px;
     cursor: pointer;
+    color: #fff;
+    font-weight: bold;
 }
 
 .pedra-btn.active {
-    background-color: #212121;
+    background-color: #D9B565;
     border-radius: 14px;
     padding: 0.5rem;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform .3s ease;
 }
 
 
@@ -292,13 +311,15 @@ input[type="range"] {
     appearance: none;
     outline: none;
     border-radius: 10px;
+    z-index: 2000;
+    background-color: #d4d4d4;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     height: 30px;
     width: 30px;
-    background-color:rgb(65, 65, 65);
+    background-color:#D9B565;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -311,12 +332,41 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .tamanho img {
-    width: 200px;
+    width: 250px;
     position: absolute;
-    bottom: 20px;
+    bottom: -130px;
     left: 50%;
     transform: translate(-50%);
 }
+
+.menudeskshow li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff; /* Cor do texto */
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.menudeskshow li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px; /* Altura da barra */
+    background-color: #D9B565; /* Cor da barra */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.menudeskshow li a:hover::after {
+    width: 100%; /* Faz a barra crescer para o tamanho do texto */
+}
+
+.menudeskshow li a:hover {
+    color: #D9B565; /* Cor do texto ao passar o mouse, opcional */
+}
+
 
 /* Estilos para o responsivo no mobile */
 @media screen and (max-width: 960px) {
